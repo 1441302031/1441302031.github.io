@@ -4,7 +4,7 @@ title:      再次迈出一步
 subtitle:   博文
 date:       2020-02-17
 author:     AbnerTan
-header-img:	img/post-bg-map.jpg
+header-img:	img/post_bg/20200217_first_step.jpg
 catalog: true
 tags:
 	- 生活
