@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Unity texture compression platform map</title>
+  <desc id="desc">A pixel style chart showing common texture compression choices for Unity platforms.</desc>
+  <rect width="960" height="540" fill="#fff5d6"/>
+  <path d="M0 0h960v540H0z" fill="#f7d99b"/>
+  <path d="M0 318h960v222H0z" fill="#8dbb6a"/>
+  <g opacity=".25" stroke="#5b3927" stroke-width="1">
+    <path d="M0 0v540M40 0v540M80 0v540M120 0v540M160 0v540M200 0v540M240 0v540M280 0v540M320 0v540M360 0v540M400 0v540M440 0v540M480 0v540M520 0v540M560 0v540M600 0v540M640 0v540M680 0v540M720 0v540M760 0v540M800 0v540M840 0v540M880 0v540M920 0v540"/>
+    <path d="M0 0h960M0 40h960M0 80h960M0 120h960M0 160h960M0 200h960M0 240h960M0 280h960M0 320h960M0 360h960M0 400h960M0 440h960M0 480h960M0 520h960"/>
+  </g>
+  <rect x="54" y="46" width="852" height="422" fill="#fff9e8" stroke="#5b3927" stroke-width="8"/>
+  <text x="88" y="98" fill="#3a2d24" font-family="Arial, Microsoft YaHei, sans-serif" font-size="34" font-weight="800">Unity 纹理压缩平台选择地图</text>
+  <text x="88" y="134" fill="#6f5644" font-family="Arial, Microsoft YaHei, sans-serif" font-size="18">优先按目标平台选 GPU 原生格式，再按质量、包体、内存和加载成本取舍。</text>
+  <g font-family="Arial, Microsoft YaHei, sans-serif" font-weight="800">
+    <rect x="88" y="174" width="178" height="94" fill="#d7edb2" stroke="#5b3927" stroke-width="5"/>
+    <text x="110" y="214" fill="#3a2d24" font-size="24">桌面 / 主机</text>
+    <text x="110" y="248" fill="#5f9f58" font-size="24">BCn / DXT</text>
+    <rect x="292" y="174" width="178" height="94" fill="#ffe7a3" stroke="#5b3927" stroke-width="5"/>
+    <text x="314" y="214" fill="#3a2d24" font-size="24">Android</text>
+    <text x="314" y="248" fill="#d57a3a" font-size="24">ASTC / ETC2</text>
+    <rect x="496" y="174" width="178" height="94" fill="#dcecf6" stroke="#5b3927" stroke-width="5"/>
+    <text x="518" y="214" fill="#3a2d24" font-size="24">iOS</text>
+    <text x="518" y="248" fill="#5d93b8" font-size="24">ASTC / PVRTC</text>
+    <rect x="700" y="174" width="154" height="94" fill="#eadcf6" stroke="#5b3927" stroke-width="5"/>
+    <text x="722" y="214" fill="#3a2d24" font-size="24">WebGL</text>
+    <text x="722" y="248" fill="#8b6eb1" font-size="24">ETC2 / Basis</text>
+  </g>
+  <g fill="#3a2d24" font-family="Arial, Microsoft YaHei, sans-serif" font-size="21">
+    <text x="104" y="328">判断顺序</text>
+    <text x="104" y="366">1. 目标设备 GPU 是否原生支持</text>
+    <text x="104" y="404">2. 是否需要 Alpha，高质量还是低包体</text>
+    <text x="514" y="366">3. 是否生成 Mipmap，远景是否闪烁</text>
+    <text x="514" y="404">4. 是否平台覆盖太广，需要兜底格式</text>
+  </g>
+  <rect x="88" y="432" width="780" height="10" fill="#5b3927"/>
+  <rect x="88" y="442" width="156" height="20" fill="#8a5a3c"/>
+  <rect x="244" y="442" width="156" height="20" fill="#b06f3a"/>
+  <rect x="400" y="442" width="156" height="20" fill="#8a5a3c"/>
+  <rect x="556" y="442" width="156" height="20" fill="#b06f3a"/>
+  <rect x="712" y="442" width="156" height="20" fill="#8a5a3c"/>
+</svg>

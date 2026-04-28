@@ -17,13 +17,6 @@ export const columns: BlogColumn[] = [
     icon: 'engine',
   },
   {
-    slug: 'wechat-minigame',
-    name: '微信小游戏',
-    description: '小游戏运行时、包体、加载、适配与平台侧工程经验。',
-    accent: 'mint',
-    icon: 'sprout',
-  },
-  {
     slug: 'performance',
     name: '性能优化',
     description: 'Profiler、内存、GPU、加载链路与稳定帧率的优化笔记。',
