@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPublishedPosts } from '../lib/posts';
+
+const posts = await getPublishedPosts();
+const latestPosts = posts.slice(0, 3);
+---
+
+<BaseLayout title="1441302031 的博客">
+  <section class="intro-section">
+    <div class="intro-copy">
+      <p class="eyebrow">Personal Blog</p>
+      <h1>记录学习、构建与持续前进。</h1>
+      <p class="intro-text">
+        这里会整理技术笔记、项目复盘和一些阶段性的思考。先把想法写清楚，再让代码慢慢长成作品。
+      </p>
+      <div class="action-row">
+        <a class="button primary" href="/blog/">阅读文章</a>
+        <a class="button ghost" href="/about/">了解我</a>
+      </div>
+    </div>
+    <div class="intro-panel" aria-label="博客概览">
+      <p>当前文章</p>
+      <strong>{posts.length}</strong>
+      <span>Markdown 内容系统驱动</span>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="section-heading">
+      <p class="eyebrow">Latest</p>
+      <h2>最新文章</h2>
+    </div>
+    <div class="post-grid">
+      {latestPosts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>
