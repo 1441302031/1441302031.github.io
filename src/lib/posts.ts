@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { getColumn } from './columns';
 
 export type BlogPost = CollectionEntry<'blog'>;
 
@@ -14,4 +15,8 @@ export function formatDate(date: Date): string {
     month: 'long',
     day: 'numeric',
   }).format(date);
+}
+
+export function getPostColumn(post: BlogPost) {
+  return getColumn(post.data.column);
 }

@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { formatDate, getPublishedPosts, type BlogPost } from '../../lib/posts';
+import { formatDate, getPostColumn, getPublishedPosts, type BlogPost } from '../../lib/posts';
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
@@ -17,14 +17,20 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const column = getPostColumn(post);
 const { Content } = await render(post);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
   <article class="article-shell">
-    <header class="article-header">
-      <a class="back-link" href="/blog/">← 返回日志列表</a>
-      <p class="post-meta">TRACE / {formatDate(post.data.pubDate)}</p>
+    <header class="article-header pixel-panel">
+      <a class="back-link pixel-press" href="/blog/">返回日志列表</a>
+      <div class="article-meta-row">
+        <p class="post-meta">{formatDate(post.data.pubDate)}</p>
+        <a class:list={['column-badge', 'pixel-press', `accent-${column.accent}`]} href={`/columns/${column.slug}/`}>
+          {column.name}
+        </a>
+      </div>
       <h1>{post.data.title}</h1>
       <p>{post.data.description}</p>
       {

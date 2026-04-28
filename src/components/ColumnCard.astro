@@ -1,0 +1,19 @@
+---
+import type { BlogColumn } from '../lib/columns';
+
+interface Props {
+  column: BlogColumn;
+  count: number;
+}
+
+const { column, count } = Astro.props;
+---
+
+<a class:list={['column-card', 'pixel-press', `accent-${column.accent}`]} href={`/columns/${column.slug}/`}>
+  <span class:list={['pixel-icon', column.icon]} aria-hidden="true"></span>
+  <span class="column-card-copy">
+    <strong>{column.name}</strong>
+    <span>{column.description}</span>
+  </span>
+  <em>{count} 篇</em>
+</a>

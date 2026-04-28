@@ -1,5 +1,5 @@
 ---
-import type { BlogPost } from '../lib/posts';
+import { getPostColumn, type BlogPost } from '../lib/posts';
 import { formatDate } from '../lib/posts';
 
 interface Props {
@@ -7,13 +7,14 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const column = getPostColumn(post);
 ---
 
 <article class="post-card">
-  <a href={`/blog/${post.id}/`} class="post-card-link">
+  <a href={`/blog/${post.id}/`} class="post-card-link pixel-press">
     <div class="post-card-top">
-      <p class="post-meta">LOG / {formatDate(post.data.pubDate)}</p>
-      <span class="status-pill">READ</span>
+      <p class="post-meta">{formatDate(post.data.pubDate)}</p>
+      <span class:list={['column-badge', `accent-${column.accent}`]}>{column.name}</span>
     </div>
     <h2>{post.data.title}</h2>
     <p>{post.data.description}</p>

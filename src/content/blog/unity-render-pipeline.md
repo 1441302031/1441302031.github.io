@@ -3,6 +3,8 @@ title: "图形学与渲染管线在 Unity 中的应用"
 description: "把图形学概念落到 Unity 工程里，理解渲染管线、Shader、材质、Pass 和调试工具如何协作。"
 pubDate: "2026-04-30"
 tags: ["Unity", "渲染管线", "图形学"]
+column: "graphics-shader"
+columnName: "图形学 / Shader"
 ---
 
 图形学概念只有落到引擎管线里，才会变成能调试、能优化、能交付的工程能力。Unity 的渲染系统不是单一的 Shader 执行器，而是一套资源、状态、管线和平台后端共同工作的系统。

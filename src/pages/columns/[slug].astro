@@ -1,0 +1,51 @@
+---
+import PostCard from '../../components/PostCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { columns, getPostsByColumn, type BlogColumn } from '../../lib/columns';
+import { getPublishedPosts, type BlogPost } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+
+  return columns.map((column) => ({
+    params: { slug: column.slug },
+    props: {
+      column,
+      posts: getPostsByColumn(posts, column.slug),
+    },
+  }));
+}
+
+interface Props {
+  column: BlogColumn;
+  posts: BlogPost[];
+}
+
+const { column, posts } = Astro.props;
+---
+
+<BaseLayout title={column.name} description={column.description}>
+  <section class:list={['page-heading', 'pixel-panel', `accent-${column.accent}`]}>
+    <p class="eyebrow">Column Field</p>
+    <h1>{column.name}</h1>
+    <p>{column.description}</p>
+    <div class="column-detail-meta">
+      <span class:list={['pixel-icon', column.icon]} aria-hidden="true"></span>
+      <strong>{posts.length} 篇文章</strong>
+    </div>
+  </section>
+
+  <section class="content-section">
+    {
+      posts.length > 0 ? (
+        <div class="post-list">
+          {posts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <p class="empty-note">这个专栏还没有文章，先把土翻好，等下一篇笔记。</p>
+      )
+    }
+  </section>
+</BaseLayout>

@@ -10,6 +10,9 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
+    column: z.string().default('unity-engine'),
+    columnName: z.string().default('Unity / 团结引擎'),
+    cover: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

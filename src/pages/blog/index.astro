@@ -1,21 +1,60 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { columns, getPostsByColumn } from '../../lib/columns';
 import { getPublishedPosts } from '../../lib/posts';
 
 const posts = await getPublishedPosts();
 ---
 
-<BaseLayout title="博客" description="Abner.DevLog 的游戏开发与工程实践文章列表。">
-  <section class="page-heading">
-    <p class="eyebrow">Debug Archive</p>
-    <h1>博客日志</h1>
-    <p>Unity、小游戏、性能分析、工程工具链与 AI 辅助开发相关记录。</p>
+<BaseLayout title="博客" description="Abner.FarmDevLog 的游戏开发技术文章列表。">
+  <section class="page-heading pixel-panel">
+    <p class="eyebrow">Village Archive</p>
+    <h1>全部博客日志</h1>
+    <p>按专栏整理的游戏工程知识库。你可以从这里进入某个主题，也可以按时间阅读所有文章。</p>
   </section>
 
   <section class="content-section">
-    <div class="post-list">
-      {posts.map((post) => <PostCard post={post} />)}
+    <div class="section-heading">
+      <p class="eyebrow">Column Map</p>
+      <h2>按专栏浏览</h2>
+    </div>
+    <div class="column-jump-list">
+      {
+        columns.map((column) => {
+          const count = getPostsByColumn(posts, column.slug).length;
+          return (
+            <a class:list={['column-jump', 'pixel-press', `accent-${column.accent}`]} href={`#${column.slug}`}>
+              <span>{column.name}</span>
+              <em>{count}</em>
+            </a>
+          );
+        })
+      }
     </div>
   </section>
+
+  {
+    columns.map((column) => {
+      const columnPosts = getPostsByColumn(posts, column.slug);
+      return (
+        <section class="content-section column-section" id={column.slug}>
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">{column.slug}</p>
+            <h2>{column.name}</h2>
+            <p>{column.description}</p>
+          </div>
+          {columnPosts.length > 0 ? (
+            <div class="post-list">
+              {columnPosts.map((post) => (
+                <PostCard post={post} />
+              ))}
+            </div>
+          ) : (
+            <p class="empty-note">这片田地还在翻土，新的文章会慢慢长出来。</p>
+          )}
+        </section>
+      );
+    })
+  }
 </BaseLayout>

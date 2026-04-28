@@ -1,0 +1,26 @@
+---
+import ColumnCard from '../../components/ColumnCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { columns, getColumnPostCount } from '../../lib/columns';
+import { getPublishedPosts } from '../../lib/posts';
+
+const posts = await getPublishedPosts();
+---
+
+<BaseLayout title="专栏" description="Abner.FarmDevLog 的游戏开发技术专栏列表。">
+  <section class="page-heading pixel-panel">
+    <p class="eyebrow">Column Board</p>
+    <h1>专栏地图</h1>
+    <p>每个专栏像一块小田地，分别种着引擎、小游戏、性能、工具、AI 和图形学笔记。</p>
+  </section>
+
+  <section class="content-section">
+    <div class="column-grid">
+      {
+        columns.map((column) => (
+          <ColumnCard column={column} count={getColumnPostCount(posts, column.slug)} />
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

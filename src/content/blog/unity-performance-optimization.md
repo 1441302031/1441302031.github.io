@@ -3,6 +3,8 @@ title: "Unity 性能优化：从指标到行动"
 description: "整理 Unity 性能优化的工程化方法：先定位瓶颈，再针对 CPU、GPU、内存、资源和加载路径做取舍。"
 pubDate: "2026-05-01"
 tags: ["Unity", "性能优化", "Profiler"]
+column: "performance"
+columnName: "性能优化"
 ---
 
 性能优化不是把所有代码都改快，也不是看到 GC 就立刻重构。真正有效的优化要从目标和指标开始：目标平台是什么，帧率预算是多少，瓶颈在哪里，改动会牺牲什么。

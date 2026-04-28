@@ -3,6 +3,8 @@ title: "用 GitHub Actions 自动部署到 GitHub Pages"
 description: "梳理从 main 分支推送到 GitHub Pages 自动发布的流程。"
 pubDate: "2026-04-27"
 tags: ["GitHub Pages", "CI/CD", "部署"]
+column: "editor-tools"
+columnName: "Editor 工具"
 ---
 
 这个博客通过 GitHub Actions 自动构建并部署到 GitHub Pages。每次把代码推送到 `main` 分支后，工作流会安装依赖、构建 Astro 站点，并把静态产物发布到 Pages。

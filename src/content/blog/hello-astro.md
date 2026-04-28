@@ -3,6 +3,8 @@ title: "从 Astro 开始搭建个人博客"
 description: "记录这个博客的初始结构、页面规划和 Markdown 内容系统。"
 pubDate: "2026-04-28"
 tags: ["Astro", "博客", "Markdown"]
+column: "ai-workflow"
+columnName: "AI Workflow"
 ---
 
 这是博客的第一篇示例文章。它来自 `src/content/blog` 目录，并通过 Astro 的内容集合读取、校验和渲染。

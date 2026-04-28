@@ -6,15 +6,16 @@ interface Props {
   description?: string;
 }
 
-const siteName = 'Abner.DevLog';
+const siteName = 'Abner.FarmDevLog';
 const {
   title,
-  description = 'Abner.DevLog，记录 Unity、小游戏性能优化、工程工具链与 AI 辅助开发实践。',
+  description = 'Abner.FarmDevLog，温暖像素风的游戏开发技术博客，记录 Unity、性能优化、工具链与 AI Workflow。',
 } = Astro.props;
 const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
 const currentPath = Astro.url.pathname;
 const navItems = [
   { href: '/', label: '首页' },
+  { href: '/columns/', label: '专栏' },
   { href: '/blog/', label: '博客' },
   { href: '/about/', label: '关于' },
   { href: 'https://github.com/1441302031', label: 'GitHub', external: true },
@@ -32,13 +33,18 @@ const navItems = [
     <link rel="icon" href="/favicon.svg" />
   </head>
   <body>
-    <div class="scanline" aria-hidden="true"></div>
+    <div class="pixel-sky" aria-hidden="true">
+      <span class="cloud cloud-a"></span>
+      <span class="cloud cloud-b"></span>
+      <span class="hill hill-a"></span>
+      <span class="hill hill-b"></span>
+    </div>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="返回首页">
-        <span class="brand-mark" aria-hidden="true">A</span>
+      <a class="brand pixel-press" href="/" aria-label="返回首页">
+        <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-copy">
           <strong>{siteName}</strong>
-          <small>Game Engineering Notes</small>
+          <small>Game Dev Knowledge Farm</small>
         </span>
       </a>
       <nav class="site-nav" aria-label="主导航">
@@ -51,7 +57,7 @@ const navItems = [
                 : currentPath === item.href || currentPath.startsWith(item.href));
             return (
               <a
-                class:list={['nav-link', { active: isActive }]}
+                class:list={['nav-link', 'pixel-press', { active: isActive }]}
                 href={item.href}
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noreferrer' : undefined}
@@ -67,7 +73,7 @@ const navItems = [
       <slot />
     </main>
     <footer class="site-footer">
-      <p>© {new Date().getFullYear()} Abner.DevLog / Unity / MiniGame / Performance / Tools</p>
+      <p>© {new Date().getFullYear()} Abner.FarmDevLog · Unity · 性能优化 · 工具链 · 图形学</p>
     </footer>
   </body>
 </html>
