@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="1441302031">
-  <rect width="64" height="64" rx="12" fill="#1f2933" />
-  <path d="M18 45V19h-5v-7h13v33h-8Zm30 0h-8v-7H27v-6l11-20h10v19h4v7h-4v7Zm-8-14V20l-6 11h6Z" fill="#ffffff" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Abner DevLog">
+  <rect width="64" height="64" rx="12" fill="#070b12" />
+  <path d="M10 18h44v28H10z" fill="#0f172a" stroke="#22d3ee" stroke-width="2" />
+  <path d="M18 38 28 16h8l10 22h-8l-2-5H27l-2 5h-7Zm12-12h4l-2-6-2 6Z" fill="#8eea9f" />
+  <path d="M14 50h36" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" />
 </svg>

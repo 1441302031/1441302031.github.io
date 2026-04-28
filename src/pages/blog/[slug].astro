@@ -23,15 +23,15 @@ const { Content } = await render(post);
 <BaseLayout title={post.data.title} description={post.data.description}>
   <article class="article-shell">
     <header class="article-header">
-      <a class="back-link" href="/blog/">返回文章列表</a>
-      <p class="post-meta">{formatDate(post.data.pubDate)}</p>
+      <a class="back-link" href="/blog/">← 返回日志列表</a>
+      <p class="post-meta">TRACE / {formatDate(post.data.pubDate)}</p>
       <h1>{post.data.title}</h1>
       <p>{post.data.description}</p>
       {
         post.data.tags.length > 0 && (
           <ul class="tag-list" aria-label="文章标签">
             {post.data.tags.map((tag) => (
-              <li>{tag}</li>
+              <li>#{tag}</li>
             ))}
           </ul>
         )

@@ -11,14 +11,17 @@ const { post } = Astro.props;
 
 <article class="post-card">
   <a href={`/blog/${post.id}/`} class="post-card-link">
-    <p class="post-meta">{formatDate(post.data.pubDate)}</p>
+    <div class="post-card-top">
+      <p class="post-meta">LOG / {formatDate(post.data.pubDate)}</p>
+      <span class="status-pill">READ</span>
+    </div>
     <h2>{post.data.title}</h2>
     <p>{post.data.description}</p>
     {
       post.data.tags.length > 0 && (
         <ul class="tag-list" aria-label="文章标签">
           {post.data.tags.map((tag) => (
-            <li>{tag}</li>
+            <li>#{tag}</li>
           ))}
         </ul>
       )
